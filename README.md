@@ -8,4 +8,4 @@
 - npm run start
 ## Preview
 
-![Resim](/../src/img//intro.gif)
+![Resim](/src/img//intro.gif)
