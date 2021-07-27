@@ -4,14 +4,11 @@ export const fetchItems = async () => {
     //setIsLoading(true)
     const result = await axios.get(
       `https://rickandmortyapi.com/api/character/`
-    ).then((response) => {
-      return response.data.results
-    } );
-    return result
-    
+    )
+    return result.data.results
   }
 
-  export const searchItems = async (query) => {
+  export const searchItems = async (query="") => {
     const result = await axios.get(
       `https://rickandmortyapi.com/api/character/?name=${query}`
     ).then((response) => {
