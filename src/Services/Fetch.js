@@ -11,17 +11,13 @@ export const fetchItems = async () => {
   export const searchItems = async (query="") => {
     const result = await axios.get(
       `https://rickandmortyapi.com/api/character/?name=${query}`
-    ).then((response) => {
-      return response.data.results
-    } );
-    return result
+    )
+    return result.data.results
   }
 
   export const getFilterItems = async (status,gender) => {
     const result = await axios.get(
       `https://rickandmortyapi.com/api/character/?&status=${status}&gender=${gender}`
-    ).then((response) => {
-      return response.data.results
-    } );
-    return result
+    )
+    return result.data.results
   }
