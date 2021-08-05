@@ -9,10 +9,11 @@ import '../App.css'
 
 export default function  Home  ()  {
     const [items, setItems] = useState([])
-    const [isLoading, setIsLoading] = useState()
+    const [isLoading, setIsLoading] = useState(true)
     const [query, setQuery] = useState('')
 
     async function getCharacter() {
+        setIsLoading(true);
         try {
             const data = await fetchItems();
             setItems(data);
@@ -22,6 +23,7 @@ export default function  Home  ()  {
     }
 
     async function getSearch(searcItem) {
+        setIsLoading(true);
         try {
             const data = await searchItems(searcItem);
             setItems(data);
@@ -36,12 +38,13 @@ export default function  Home  ()  {
     }
 
     useEffect(() => {
+        setIsLoading(true);
         if (query === '') {
             getCharacter()
         } else {
             getSearch(query)
         }
-        setIsLoading(false)
+        setIsLoading(false);
     }, [query])
 
 
